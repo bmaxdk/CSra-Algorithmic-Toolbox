@@ -1,24 +1,33 @@
 #include <iostream>
+#include <cassert>
+using namespace std;
 
-int get_fibonacci_last_digit_naive(int n) {
-    if (n <= 1)
-        return n;
+// // for HW2_2 _this is too slow
+// int fibonacci_fast(int n) {
+//     if (n <= 1)
+//         return n;
 
-    int previous = 0;
-    int current  = 1;
+//     int ans = (fibonacci_fast(n-1) + fibonacci_fast(n-2))%10;
 
-    for (int i = 0; i < n - 1; ++i) {
-        int tmp_previous = previous;
-        previous = current;
-        current = tmp_previous + current;
+//     return ans;
+// }
+
+// for HW2_2
+int fibonacci_fast(int n) {
+    int arrayF[n];
+    arrayF[0] = 0;
+    arrayF[1] = 1;
+    for (int i = 2; i<=n; i++){
+        arrayF[i] = (arrayF[i-1] + arrayF[i-2])%10;
     }
 
-    return current % 10;
+    return arrayF[n];
 }
 
+
 int main() {
-    int n;
-    std::cin >> n;
-    int c = get_fibonacci_last_digit_naive(n);
-    std::cout << c << '\n';
-    }
+    int n = 0;
+    cin >> n;
+    cout << fibonacci_fast(n) << '\n';
+    return 0;
+}
