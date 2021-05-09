@@ -1,14 +1,15 @@
 #include <iostream>
 
-int sum_of_two_digits(int first_digit, int second_digit) {
-    return first_digit + second_digit;
+using std::cin;
+using std::cout;
+int plus(int first, int second){
+  return first + second;
 }
 
 int main() {
-    int a = 0;
-    int b = 0;
-    std::cin >> a;
-    std::cin >> b;
-    std::cout << sum_of_two_digits(a, b);
-    return 0;
+  int a = 0;
+  int b = 0;
+  cin >> a;
+  cin >> b;
+  cout << plus(a, b)<<"\n";
 }
