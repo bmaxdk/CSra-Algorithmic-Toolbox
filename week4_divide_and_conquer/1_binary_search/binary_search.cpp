@@ -1,12 +1,32 @@
 #include <iostream>
 #include <cassert>
 #include <vector>
+#include <cmath>
 
 using std::vector;
 
 int binary_search(const vector<int> &a, int x) {
-  int left = 0, right = (int)a.size(); 
+  int left = 0, right = a.size(); //index 
   //write your code here
+  // Try with Iterative version
+  while (left <= right){
+    int mid = ceil(left + (right - left)/2);
+    if (x == a[mid]){
+      return mid;
+    } else if (x < a[mid]){
+      right = mid -1;
+
+    } else {
+      left = mid +1;
+      // if (x != a[mid]){
+      //   return -1;
+      // }
+    }
+    if ((left >= a.size()) || (left > right) && (x != a[mid])){
+      return -1;
+    } 
+  }
+  return left -1;
 }
 
 int linear_search(const vector<int> &a, int x) {
@@ -31,6 +51,7 @@ int main() {
   }
   for (int i = 0; i < m; ++i) {
     //replace with the call to binary_search when implemented
-    std::cout << linear_search(a, b[i]) << ' ';
+    // std::cout << linear_search(a, b[i]) << ' ';
+    std::cout << binary_search(a, b[i]) << ' '<<std::endl;
   }
 }
