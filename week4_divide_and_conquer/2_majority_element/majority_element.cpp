@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
-
 using std::vector;
 using namespace std;
 
@@ -54,7 +53,6 @@ int get_majority_element(vector<int> &a, int left, int right) {
   if (left == right) return -1;
   if (left + 1 == right) return a[left];
   //write your code here
-  std::cout << "\n" << std::endl;
   merge_sort(a, left, right);  
   int count = 1;
   int majority = (a.size())/2+1;
